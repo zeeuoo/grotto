@@ -6,10 +6,8 @@ $('a.scroll').on('click', function(e){
     $('html,body').animate({scrollTop:$("#main").offset().top}, 400);
 });
 
-/*visual contact mobile*/
-if($(window).width() <991) { 
-    $('.header-wrap .contact').appendTo('.slogan');
-}
+/*tooltip*/
+$('.tooltip').delay(3000).fadeOut();  
 
 /*chef swiper web*/
 var swiper = new Swiper('.swiper1', {
@@ -84,25 +82,9 @@ if($(window).width() <991) {
     $('#footer .contact a.kakao span').html('카카오톡 <em><a href="http://pf.kakao.com/_xcxbiFK/chat">@그로토</a></em> 채널 추가하고 자세한 상담 받아보세요.');
 }
    
-/*chef swiper mobile
-    if($(window).width() <991) { 
-        $('.category-wrap').append($('.category'));
-        $('.chef-list:first-child').attr('aria-label', '1 / 5');
-        $('.chef-list:nth-child(2)').attr('aria-label', '2 / 5');
-        $('.chef-list:nth-child(3)').attr('aria-label', '3 / 5');
-        $('.chef-list:nth-child(4)').attr('aria-label', '4 / 5');
-        $('.chef-list:nth-child(5)').attr('aria-label', '5 / 5');
-    } */
-
-/*top button
-$('.go-to-top').on('click', function(e){
-    e.preventDefault();
-    $('html,body').animate({scrollTop: 0}, 400);
+/*cursor
+$(window).mousemove(function(event){
+    $(".cursor").css({ left: event.pageX - 40 , top: event.pageY -40 });
 });*/
 
-/*mouse cursor
-$(window).mousemove(function(cursor){
-            gsap.to($('.cursor'), {duration: 0.5, left: cursor.pageX -45, top: cursor.pageY -45});
-        });*/
-    
-});    
+})

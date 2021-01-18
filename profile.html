@@ -141,10 +141,8 @@ var posY;
         $('#popupWrap .modal-wrapper').removeClass("on");
         $('html, body').removeClass('not_scroll');
         posY = $(window).scrollTop(posY); //원래 스크롤 위치로 반환
-        // 모바일에서 팝업 스크롤 오류 해결
-        if($(window).width() <991) {
-            $('#footer').css('top', '0');
-        }
+        // 팝업 닫기 푸터 위치 이동 오류 해결
+        $('#footer').css('top', '0');
     }
     
 //prev 버튼 클릭 이벤트  

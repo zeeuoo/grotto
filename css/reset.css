@@ -3,11 +3,7 @@
 
 /* 여백 초기화 */
 body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form {margin: 0; padding: 0;}
-
 body {overflow-x: hidden;}
-
-/* a 링크 초기화 */
-a {text-decoration: none; color: #1f1f1f; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
 
 /* 폰트 초기화 */
 body, input, textarea, select, button, table {font-family:'Montserrat', 'Noto Sans KR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #1f1f1f; font-size: 14px; line-height: 1.6; word-break: keep-all;}
@@ -15,6 +11,13 @@ body, input, textarea, select, button, table {font-family:'Montserrat', 'Noto Sa
 /* 폰트 스타일 초기화 */
 em {font-style: normal;}
 p {letter-spacing: -0.04em;}
+
+/* a 링크 초기화 */
+a {text-decoration: none; color: #1f1f1f; position: relative;}
+
+/* 링크 하이라이터 초기화 */
+div, button, a {webkit-tap-highlight-color: transparent;}
+div:focus, button:focus, a:focus {outline: 0;}
 
 /* 블릿기호 초기화 */    
 dl, ul, li, ol, menu {list-style: none;}
