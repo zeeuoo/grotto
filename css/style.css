@@ -1,0 +1,297 @@
+@charset "utf-8"; /*한글 깨짐 방지*/
+
+
+/*공용*/
+.garamond {font-family: 'EB Garamond', serif;}
+a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; left: 0; bottom: -5px;}
+.cursor {position: absolute; top: 100px; left: 100px; width: 90px; height: 90px; background: #471324; z-index: 1; border-radius: 50px; transition: transform 0.6s ease-in-out; user-select: none; pointer-events: none;}
+.close {width: 40px; height: 40px; position: absolute; top: 3vw; right: 3vw; cursor: pointer; z-index: 1;}
+.close:before {content: ''; display: block; border: solid #fff; border-width: 0 2px 0 0; position: absolute; top: 0; left: 0; height: 20px; margin-left: 2em; transform: rotate(45deg);}
+.close:after {content: ''; display: block; border: solid #fff; border-width: 0 2px 0 0; position: absolute; top: 0; left: 0; height: 20px; margin-left: 2em; transform: rotate(-45deg);}
+.not_scroll {position: fixed; overflow: hidden; width: 100%; height: 100%;}
+.not_scroll .cont {position: relative; top: 0;}
+
+/*header*/
+.header-wrap {width: 100%; height: 100vh; background: #555; position: relative;}
+.header-wrap .gnb {display: flex; padding: 3vw;}
+.header-wrap .gnb h1 {background:url(../img/logo.svg) no-repeat center; width: 145px; height: 28px;}
+.header-wrap .gnb .faq {flex: 1;}
+.header-wrap .gnb .faq a {color: #fff;}
+.header-wrap .gnb .faq a:hover span:after {background: #fff;}
+.header-wrap .gnb .reserv {flex: 1; text-align: right; z-index: 2;}
+.header-wrap .gnb .reserv svg {width: 90px; height: 90px; position: fixed; top: 3vw; right: 3vw; animation: rotate_image 10s linear infinite; transform-origin: 50% 50%;}
+.header-wrap .slogan {position: absolute; bottom: 3vw; left: 3vw; color: #fff;}
+.header-wrap .slogan em {font-size: 22px; display: block;}
+.header-wrap .slogan p {font-weight: 300;}
+.header-wrap .contact {position: absolute; bottom: 3vw; right: 3vw; height: 22px;}
+.header-wrap .contact > a {display: inline-block; margin-left: 30px; color: #fff; font-weight: 300;}
+.header-wrap .contact > a:hover span:after {background: #fff;}
+.header-wrap .scroll {background: url(../img/scroll.svg) no-repeat center; position: absolute; bottom: 3vw; left: 50%; transform: translateX(-50%); width: 150px; height: 150px;}
+
+/*main 전체*/
+#main, #faq {width: 1350px; margin: 0 auto; padding: 0 15px;}
+
+/*about*/
+.about .story {text-align: center; padding-top: 100px;}
+.about .story h3 {font-size: 40px; margin-bottom: 30px; line-height: 1;}
+
+/*chef*/
+.about .chef .swiper-container {overflow: initial;}
+.about .chef .category {width: 340px; font-weight: 600; margin-top: 100px; }
+.about .chef .chef-warp {margin-top: 30px; margin-bottom: 180px;}
+.about .chef .chef-warp.swiper-wrapper {width: 100%; height: 100%;}
+.about .chef .chef-warp .chef-list:first-child {padding-left: 0;}
+.about .chef .chef-warp .chef-list.swiper-slide {
+       /* Center slide text vertically */
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      width: 25%;
+    }
+.about .chef .chef-warp .chef-list .img {/*height: 480px;*/ padding-bottom: 140%; background: #555;}
+.about .chef .chef-warp .chef-list .name {font-weight: 600; letter-spacing: -0.04em; font-size: 18px; margin: 20px 0 5px;}
+.about .chef .chef-warp .chef-list .name span {color: #666; font-weight: 400; letter-spacing: 0;}
+.about .chef .chef-warp .chef-list .kind {margin-bottom: 30px;}
+.about .chef .chef-warp .chef-list > button {color: #999999; letter-spacing: -0.04em; cursor: pointer; font-size: 13px;}
+.about .chef .chef-warp .chef-list > button span:after {content: ''; display: block; width: 100%; height: 1px; background: #999; }
+
+/*chef popup*/
+#popupWrap {z-index: 999;}
+#popupWrap .modal-wrapper {position: fixed; top: 0; left: 0; transition: all 0.5s ease-in-out; z-index: 999; margin-left: 3000px; background-color: rgba(0,0,0,0.8); width: 100%; height: 100vh;}
+#popupWrap .modal-wrapper.on {margin-left: 0;}
+#popupWrap .modal-wrapper .btn {display: flex;}
+#popupWrap .modal-wrapper .btn {position: absolute; right: 3vw; bottom: 3vw;}
+#popupWrap .modal-wrapper .btn .prev {width: 35px; height: 35px; background: url(../img/prevNext.svg) no-repeat center; transform: rotate(180deg);}
+#popupWrap .modal-wrapper .next {width: 35px; height: 35px; background: url(../img/prevNext.svg) no-repeat center;}
+#popupWrap .modal-wrapper .modal {position: fixed; width: 100%; height: 100vh; display: none;}
+#popupWrap .modal-wrapper .modal.on {display: block;}
+.modal_container {width: 82%; height: 100vh; position: absolute; right: 0; background: #fff;}
+.modal_container .m_content .img {width: 50%; height: 100vh; background: #555;}
+.modal_container .m_content .m_inner {width: 50%;}
+.modal_container .m_content .m_inner .close:before, .modal_container .m_content .close:after {border-color: #1f1f1f;}
+.modal_container .m_content .m_inner .profile {padding: 3vw;}
+
+
+/*process 전체*/
+.process-wrap .process h2 {font-size: 18px; cursor: pointer;}
+.process-wrap .process h2 span {font-size: 46px; margin-left: 8px;}
+.process-wrap .process h2.active {color: #471324;}
+.process-wrap .process .contents {margin: 20px 0 100px; display: none;}
+
+/*menu*/
+.menu .contents .menu-wrap .tabcontent {width: 100%; display: flex;}
+.menu .contents .menu-wrap .tabcontent .option {width: 100%; padding: 3vw; text-align: center;}
+.menu .contents .menu-wrap .tabcontent .option:hover {box-shadow: 0 0 15px 5px rgba(0,0,0,0.1);}
+.menu .contents .menu-wrap .menu-title {font-size: 18px; font-weight: 600;}
+.menu .contents .menu-wrap .menu-list {margin: 30px 0 40px;}
+.menu .contents .menu-wrap .menu-list li {letter-spacing: -0.04em; margin-top: 20px;}
+.menu .contents .menu-wrap .menu-list li span {color: #999999; display: block; letter-spacing: 0;}
+.menu .contents .menu-wrap .menu-list li.special, .menu .menu-list li.special span {color: #471324;}
+.menu .contents .price {font-weight: 600;}
+
+/*wine*/
+.wine .contents .wine-wrap {display: flex;}
+.wine .contents .wine-wrap .option {width: 33.333%; text-align: center; position: relative; padding: 3vw;}
+.wine .contents .wine-wrap .option:hover {box-shadow: 0 0 15px 5px rgba(0,0,0,0.1);}
+.wine .contents .wine-wrap .option .title {font-size: 18px; font-weight: 600; margin: 15px 0;}
+.wine .contents .wine-wrap .option p {color: #999999;}
+.wine .contents .wine-wrap .promotion .img {background: url(../img/promotion.svg) no-repeat center; width: 165px; height: 165px; margin: 0 auto;}
+.wine .contents .wine-wrap .pairing .img {background: url(../img/pairing.svg) no-repeat center; width: 165px; height: 165px; margin: 0 auto;}
+.wine .contents .wine-wrap .list .img {background: url(../img/list.svg) no-repeat center; width: 165px; height: 165px; margin: 0 auto;}
+
+/*deco*/
+.deco .contents .basic {border: 1px dashed #471324; padding: 3vw; margin-bottom: 80px;}
+.deco .contents .basic .txt {text-align: center;}
+.deco .contents .basic .txt .title {font-size: 18px; font-weight: 600;}
+.deco .contents .basic .txt p {color: #999999; line-height: 2.4;}
+.deco .contents .option {margin-bottom: 80px; display: flex;}
+.deco .contents .option .txt .title {font-size: 18px; font-weight: 600; margin-bottom: 15px;}
+.deco .contents .option .txt p {color: #999999; line-height: 2.4;}
+.deco .contents .option.bright .img {width: 55%; height: 480px; background: #555;}
+.deco .contents .option.bright .txt {width: 40%; display: flex; align-items: center; margin-left: 5%;}
+.deco .contents .option.dark {flex-direction: row-reverse;}
+.deco .contents .option.dark .img {width: 65%; height: 605px; background: #555;}
+.deco .contents .option.dark .txt {width: 30%; display: flex; align-items: center; margin-right: 5%;}
+
+/*reservation*/
+.reservation .contents .step-wrap {display: flex;}
+.reservation .contents .step-wrap .step {width: 25%; text-align: center; position: relative;}
+.reservation .contents .step-wrap .step:first-child:before {display: none;}
+.reservation .contents .step-wrap .step:before {display: block; content: ''; width: 100%; height: 1px; background: #e2e2e2; position: absolute; top: 30px; right: 50%; z-index: -1; }
+.reservation .contents .step-wrap .step .number {width: 58px; height: 58px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 50px; font-weight: 700; font-size: 18px; margin-bottom: 20px; border: 2px solid #f5f5f5;}
+.reservation .contents .step-wrap .step .title {font-weight: 700; letter-spacing: -0.04em; margin-bottom: 5px;}
+.reservation .contents .step-wrap .step p {color: #999999; padding: 0 2vw;}
+.reserv-button {text-align: center; width: 25vw; margin: 0 auto; background: #471324; border-radius: 50px; margin-top: 80px;}
+.reserv-button a {color: #fff; padding: 20px 0; display: block;}
+
+
+/*footer*/
+#footer {position: relative; padding: 150px 3vw 5vh; display: flex; align-items: flex-end;}
+#footer .contact {flex: 1;}
+#footer .contact p {margin-bottom: 2px;}
+#footer .contact a {font-weight: 700; margin-right: 15px;}
+#footer .contact a:hover span:after, #footer .link a:hover span:after {background: #1f1f1f;}
+#footer .link {order: 3; flex: 1; text-align: right;}
+#footer .link a {display: inline-block; margin-left: 15px;}
+#footer .copy {flex: 1; text-align: center;}
+/*#footer .go-to-top {position: absolute; bottom: 1.5vw; right: 1.5vw; text-align: center; cursor: pointer;}
+#footer .go-to-top .img {width: 64px; height: 64px; margin-top: 5px; background: url(../img/web_icon.png) no-repeat; background-position: -169px -169px;}*/
+
+/*FAQ*/
+#faq-wrap {background: #1f1f1f; color: #fff;}
+#faq-wrap #footer .contact a, #faq-wrap #footer .contact p.haveQ, #faq-wrap #footer .link a {color: #fff;}
+#faq-wrap #footer a:hover span:after {background: #fff;}
+#faq {margin-top: 80px;}
+#faq h3 {font-size: 40px; line-height: 1; text-align: center; color: #fff;}
+#faq .faq-wrap {display: flex; padding: 80px 80px 0;}
+#faq .faq-wrap .faq-right {margin-left: 80px;}
+#faq .faq {width: 80%; margin-bottom: 40px; letter-spacing: -0.03em; line-height: 1.8;}
+#faq .faq .q {font-size: 18px; margin-bottom: 10px;}
+#faq .faq .a span {display: block; color: #F2E387;}
+
+
+/*미디어쿼리*/
+@media screen and (min-width: 992px) {
+    .mobile {display: none;}
+    .about .story span {display: block;} 
+    .about .story h3 {font-size: calc(40px + 0.5vw);}
+    .about .story p {font-size: calc(14px + 0.1vw)}
+    .about .chef .chef-warp .chef-list > button:hover {color: #471324; font-weight: 700;}
+    .about .chef .chef-warp .chef-list > button:hover span:after {background: #471324;}
+    .modal_container .m_content {display: flex;}
+    .process-wrap .process h2 {font-size: calc(18px + 0.5vw)}
+    .process-wrap .process h2 span {font-size: calc(46px + 2vw)}
+    .process-wrap .process h2:hover {color: #471324;}
+    .wine .contents .wine-wrap .option p span {display: block;}
+    .wine .contents .wine-wrap .option .txt a.more {display: none;}
+    .wine .contents .wine-wrap .promotion .img {background: url(../img/web_icon.png) no-repeat; background-position: 0 0;}
+    .wine .contents .wine-wrap .pairing .img {background: url(../img/web_icon.png) no-repeat; background-position: 0 -169px;}
+    .wine .contents .wine-wrap .list .img {background: url(../img/web_icon.png) no-repeat; background-position: -169px 0;}
+}
+
+@media screen and (max-width: 1350px) { #main, #faq {width: 1200px; overflow: hidden;} }
+@media screen and (max-width: 1200px) { 
+    #main, #faq {width: 991px;} 
+    #faq .faq-wrap {padding: 80px 40px 0;}
+    #faq .faq {width: 100%;}
+}
+
+@media screen and (max-width: 991px) {
+    .web {display: none;}
+    .header-wrap {height: 70vh;}
+    .header-wrap .gnb {flex-direction: row-reverse;}
+    .header-wrap .gnb h1 {width: 100px; height: 19px;}
+    .header-wrap .gnb .faq {text-align: right;}
+    .header-wrap .gnb .reserv {display: none;}
+    .header-wrap .contact {height: initial; position: relative; left: 0; bottom: 0; margin-top: 10px;}
+    .header-wrap .contact > a {margin-left: 0;}
+    .header-wrap .contact > a.insta span {margin-right: 15px;}
+    .header-wrap .contact > a.insta span:after {content: ''; display: block; width: 1px; height: 14px; background: #fff; position: absolute; top: 4px; right: 4px;}
+    .header-wrap .contact > a:hover span:after {display: none;}
+    .header-wrap .scroll {width: 100px; height: 100px; right: 3vw; bottom: 3vw; transform: inherit; left: inherit;}
+    #main, #faq {width: 100%; padding: 0; margin-bottom: 80px;}
+    .about .story {margin-left: 3vw; margin-right: 3vw; padding-top: 60px;}
+    .about .story h3 {text-align: left;}
+    .about .story h3 span em {display: block;}
+    .about .story p {text-align: left;}
+    .about .chef .category {padding-left: 3vw; margin-top: 60px;}
+    .about .chef .chef-warp {margin-top: 25px; margin-bottom: 80px;}
+    .about .chef .chef-warp .chef-list.swiper-slide {width: 50%;}
+    .about .chef .chef-warp .chef-list.swiper-slide:first-child {margin-left: 3vw;}
+    .about .chef .chef-warp .chef-list.swiper-slide:last-child {margin-right: 3vw;}
+    .modal_container {width: 100%; background: #fff; height: 100%; overflow: hidden; overflow-y: scroll;}
+    .modal_container .m_content .img {width: 100%; height: 50vh;}
+    .modal_container .m_content .m_inner {width: 100%;}
+    .modal_container .m_content .m_inner .btn-area {position: relative; height: 100px;}
+    .modal_container .m_content .m_inner .btn {top: 3vw; left: 3vw;}
+    .process-wrap .process {margin-left: 3vw; margin-right: 3vw;}
+    .process-wrap .process .contents {margin-bottom: 60px;}
+    .menu .contents .menu-wrap {display: block;}
+    .menu .contents .menu-wrap .tabs {display: flex; justify-content: center;}
+    .menu .contents .menu-wrap .tabs button {background: #f5f5f5; color: #999999; padding: 10px 20px; border-radius: 50px; margin-right: 8px;}
+    .menu .contents .menu-wrap .tabs button.active {background: #471324; color: #fff;}
+    .menu .contents .menu-wrap .tabcontent .option {width: inherit; padding: 5vw;}
+    .menu .contents .menu-wrap .tabcontent .option:first-child {margin-bottom: 20px;}
+    .menu .contents .menu-wrap .tabcontent .option:hover {box-shadow: none;}
+    .wine .contents .wine-wrap {display: block; padding: 0;}
+    .wine .contents .wine-wrap .option {width: inherit; background: #f5f5f5; text-align: left; padding: 5vw; display: flex; flex-direction: row-reverse; margin-bottom: 20px;}
+    .wine .contents .wine-wrap .option:hover {box-shadow: none;}
+    .wine .contents .wine-wrap .option .title {margin: 0 0 5px;}
+    .wine .contents .wine-wrap .option p {color: #1f1f1f; margin-bottom: 20px;}
+    .wine .contents .wine-wrap .option .txt {width: 80%;}
+    .wine .contents .wine-wrap .option .txt a.more {color: #999999; letter-spacing: -0.04em; font-size: 13px; display: inline-block; margin-bottom: 10px;}
+    .wine .contents .wine-wrap .option .txt > a.more:after {content: ''; width: 100%; height: 1px; position: absolute; left: 0; bottom: -5px; background: #999999;}
+    .deco .contents .basic {margin-bottom: 40px;}
+    .deco .contents .basic .txt .title {font-size: 16px;}
+    .deco .contents .option {display: block; width: inherit; margin-bottom: 40px;}
+    .deco .contents .option .txt .title {margin-bottom: 0; margin-top: 15px;}
+    .deco .contents .option.bright .img, .deco .contents .option.dark .img {width: 100%; height: 0; padding-bottom: 70%;}
+    .deco .contents .option.bright .txt, .deco .contents .option.dark .txt {width: 100%; margin-left: 0;}
+    .reservation .contents .step-wrap .step .number {border-color: #471324; background: #fff;}
+    .reserv-button {margin: 0 auto; width: calc(100% - 10vw); position: fixed; bottom: 5vw; left: 5vw; z-index: 5;}
+    .reserv-button.mobile {position: inherit; margin-top: 20px;}
+    #footer {padding-top: 30px; display: inherit; border-top: 1px solid #999999;}
+    #footer .link, #footer .copy {text-align: left;}
+    #footer .link a {margin-left: 0; margin-right: 10px; margin-bottom: 20px;}
+    #footer .contact {margin-bottom: 20px;}
+    #footer .contact p {margin-bottom: 0; color: #999999;}
+    #footer .contact p.haveQ {color: #1f1f1f; line-height: 1;}
+    #footer .contact a {display: block; margin-right: 0;}
+    #footer .contact a.tel {font-size: 7vw; color: #1f1f1f;}
+    #footer .contact a.kakao {font-weight: normal; color: #999999;}
+    #footer .contact a.kakao em a {display: inline; color: #471324; font-weight: normal;}
+    #footer .copy {color: #999999;}
+    
+    #faq-wrap #footer .contact a.kakao em a {color: #fff;}
+    #faq .faq-wrap {display: block;}
+    #faq .faq-wrap .faq-right {margin-left: 0;}
+    
+}
+
+@media screen and (max-width: 480px) {
+    .close {top: 7vw; right: 5vw;}
+    .header-wrap .gnb {padding: 5vw;}
+    .header-wrap .slogan {left: 5vw; bottom: 5vw;}
+    .header-wrap .scroll {right: 5vw; bottom: 5vw;}
+    .about {margin: 0;}
+    .about .story, .process-wrap .process, .reservation .title {margin-left: 5vw; margin-right: 5vw;}
+    .about .story h3 {margin-bottom: 20px;}
+    .about .chef .category {margin-top: 60px; padding-left: 5vw; }
+    .about .chef .chef-warp .chef-list.swiper-slide {width: 70%;}
+    .about .chef .chef-warp .chef-list.swiper-slide:first-child {margin-left: 5vw; }
+    .about .chef .chef-warp .chef-list.swiper-slide:last-child {margin-right: 5vw; }
+    #popupWrap .modal-wrapper .btn .prev, #popupWrap .modal-wrapper .btn .next {width: 45px; height: 45px;}
+    .modal_container .m_content .img {height: 30vh;}
+    .modal_container .m_content .m_inner .btn {top: 5vw; left: 5vw;}
+    .modal_container .m_content .m_inner .profile {padding: 5vw;}
+    .process-wrap .process h2 span {margin-left: 5px; font-size: 11.5vw;}
+    .menu .contents .menu-wrap .tabcontent .option {padding: 10vw;}
+    .menu .contents .menu-wrap .tabcontent .option .menu-list {margin: 30px 0;}
+    .wine .contents .wine-wrap .option {padding: 8vw 0 8vw 8vw; display: inline-block;}
+    .wine .contents .wine-wrap .option .txt {width: 60%; line-height: 1.5;}
+    .wine .contents .wine-wrap .promotion .img, .wine .contents .wine-wrap .pairing .img, .wine .contents .wine-wrap .list .img {width: 135px; height: 135px; position: absolute; right: 0; top: 50%; transform: translateY(-50%);}
+    .deco .contents .basic {padding: 10vw;}
+    .reservation.process {margin: 0;}
+    .reservation .contents {overflow-x: scroll; -ms-overflow-style: none; /* IE and Edge */ scrollbar-width: none; /* Firefox */}
+    .reservation .contents::-webkit-scrollbar {display: none; /* Chrome, Safari, Opera*/}
+    .reservation .contents .step-wrap {width: 300%;}
+    .reservation .contents .step-wrap .step p {padding: 0 8vw;}
+    #footer, #faq-wrap #footer {padding-left: 5vw; padding-right: 5vw;}
+    #faq {margin-top: 7vw;}
+    #faq .faq-wrap {padding: 60px 5vw 0;}
+    #faq h3 {text-align: left; padding-left: 5vw;}
+}
+
+
+/*키프레임*/
+@keyframes rotate_image{
+	100% {
+    	transform: rotate(360deg);
+    }
+}
+
