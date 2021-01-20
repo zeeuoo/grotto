@@ -44,16 +44,24 @@ if($(window).width() <991) {
     $('.tabs button:first').addClass('active');
     $('.tabcontent .option').hide();
     $('.tabcontent .option:first').show();
+    //add selector css
+    var activeItem = $('.tabs .active');
+    $('.tabs .selector').css({
+        "left": activeItem.position.left + "%", 
+    });
 
-    $('.tabs button').on('click', function(e){
+$('.tabs button').on('click', function(e){
         e.preventDefault();
         //모든 컨텐츠 숨김 후 인덱스에 맞게 클래스 추가
         var idx = $('.tabs button').index(this); 
         $('.tabcontent .option').hide();
         $('.tabcontent .option').eq(idx).show();
         $('.tabs button').removeClass('active');
-        $('.tabs button').eq(idx).addClass('active');
-    });
+        $(this).addClass('active');
+        //add selector css
+        var itemPos = $('.tabs .active').position();
+        $('.tabs .selector').css({"left": itemPos.left + "px"});
+});
 }
 
 
