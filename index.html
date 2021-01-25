@@ -11,8 +11,8 @@
     
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper/swiper.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
      
     <!-- JavaScript Libraries -->
@@ -33,14 +33,17 @@
     <!-- <div class="cursor web"></div> -->
     <header id="header" class="cont">
         <div class="header-wrap">
-           <div class="gnb">
+            <div class="gnb">
                 <div class="faq web"><a href="faq.html"><span>FAQ</span></a></div>
-                <div class="instagram mobile"><a href="">Instagram</a></div>
-                <div class="tooltip mobile"><p>그로토의 인스타그램을 둘러보세요!</p></div>
+                <div class="instagram mobile">
+                    <a href="">Instagram</a>
+                    <div class="tooltip"><p>그로토의 인스타그램을 둘러보세요!</p></div>
+                </div>
                 <h1><span class="ir_pm">Grotto</span></h1>
-                <div class="reserv">
-                    <span class="ir_pm">지금 예약하기</span>
-                    <svg width="95" height="95" viewBox="0 0 95 95">
+            </div>
+            <div class="reserv" onclick="fnShowPop2('popup_reserv')">
+                <span class="ir_pm">지금 예약하기</span>
+                <svg width="95" height="95" viewBox="0 0 95 95">
                     <g>
                         <path class="st0" d="M53.56,7.1L52.3,4.91c-0.13,0-0.28,0-0.42-0.01l-1.64-0.14l-0.17,2.05l-0.95-0.08L49.67,0l2.59,0.22
                             c1.73,0.14,2.7,1.12,2.58,2.58c-0.08,1.04-0.68,1.74-1.63,2l1.39,2.39L53.56,7.1z M53.89,2.71c0.08-0.96-0.51-1.56-1.73-1.66
@@ -101,20 +104,32 @@
                         <path class="st0" d="M35.45,4.04c-0.25-0.98,0.33-1.97,1.3-2.23c0.97-0.25,1.95,0.34,2.2,1.32s-0.33,1.97-1.3,2.23
                             C36.68,5.61,35.7,5.02,35.45,4.04z"/>
                     </g>
-                    </svg>                    
-                </div>
-           </div>
-            
+                </svg>                    
+            </div>
+        </div>
+        
+        <!-- main swiper -->
+        <div class="swiper-container visual">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide visual1"></div>
+                <div class="swiper-slide visual2"></div>
+                <div class="swiper-slide visual3"></div>
+            </div>
+        </div>
+        <!--//main wiper -->
+        
+        <div class="content">
             <div class="slogan">
-                <em class="garamond mb10">Enjoy cuisine at home</em>
-                <p>당신이 머무르는 곳에서<br>가장 멋진 식탁이 펼쳐집니다.<br>안락한 미식 향유, 그로토</p>
+                    <em class="garamond mb10">Enjoy cuisine at home</em>
+                    <p>당신이 머무르는 곳에서<br>가장 멋진 식탁이 펼쳐집니다.<br>안락한 미식 향유, 그로토</p>
             </div>
             <div class="contact web">
                 <a class="insta" href=""><span>Instagram</span></a>
                 <a class="kakao" href="tel:1588-8922"><span>1588-8922</span></a>
             </div>
-           <a href="#main" class="scroll" role="button"></a>  
-           </div>
+            <a href="#main" class="scroll" role="button"></a>
+        </div>
+        <!--//비주얼 컨텐츠 --> 
     </header>
     <!-- //header -->
     
@@ -125,7 +140,7 @@
                     <h3 class="garamond"><span>Stay comfortable,</span> <span><em>create cuisine,</em> enjoy moments.</span></h3>
                     <p><span>코로나19의 장기화로 인한 외부 활동, 낯선 사람과의 대면의 불안에서 벗어나</span> <span>나만의 안식처 ‘우리집’에서 가장 소중한 사람들과 풍성한 시간을 만들어보세요.</span> <span>그로토는 가장 안전하고 편안한 환경 속에서 새로운 미식경험을 선사하고자 합니다.</span></p>
                 </div>
-                <!-- Swiper -->
+                <!-- chef wiper -->
                 <div class="chef">    
                     <div class="category">OUR CHEF</div>
                     <div class="swiper-container swiper1">          
@@ -162,10 +177,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- chef profile load -->
-                    <div id="popupWrap"></div>
+                    <div id="popupWrap"></div><!-- chef profile load -->
                 </div>
-                <!-- //swiper -->
+                <!-- //chef swiper -->
             </div>
             <div class="process-wrap">
             <div class="menu process">
@@ -191,7 +205,7 @@
                                     <li>소로베<span>Sorbet</span></li>
                                     <li class="special">메인요리<span>Chef’s cuisine for you</span></li>
                                 </ul>
-                                <div class="price">250,000<br>(per person)</div>
+                                <!-- <div class="price">250,000<br>(per person)</div> -->
                             </div>
                             <div class="option">
                                 <div class="menu-title">- French Course -</div>
@@ -203,7 +217,7 @@
                                     <li>허브 랍스터구이<span>Starter</span></li>
                                     <li>트러플 카넬로니<span>Starter</span></li>
                                 </ul>
-                                <div class="price">250,000<br>(per person)</div>
+                                <!-- <div class="price">250,000<br>(per person)</div> -->
                             </div>
                             <div class="option">
                                 <div class="menu-title">- Grotto Special -</div>
@@ -215,7 +229,7 @@
                                     <li>허브 랍스터구이<span>Starter</span></li>
                                     <li>트러플 카넬로니 석화<span>Starter</span></li>
                                 </ul>
-                                <div class="price">200,000<br>(per person)</div>
+                                <!-- <div class="price">200,000<br>(per person)</div> -->
                             </div>
                         </div>
                         <div class="note">
@@ -228,42 +242,39 @@
             <div class="wine process"> 
                 <h2 class="title">(02)<span class="garamond">WINE</span></h2>
                 <div class="contents">
-                   <div class="wine-wrap">
-                        <div class="option promotion">
+                    <div class="wine-wrap">
+                        <div class="option promotion" onclick="fnShowPop2('popup_wine1')">
                             <div class="img"></div>
                             <div class="txt">
-                                <div class="title">Promotion</div>
-                                <p><span>그로토의 ‘이 달의 와인’을 소개합니다.</span> <span>당신의 식탁을 빛내줄 특별한 와인을 합리적인 가격에 만나보세요.</span></p> 
+                                <div class="title"><em>Domperignon</em> <em>Package</em></div>
+                                <p><span>샴페인의 황제라 불리는 ‘돔페리뇽’과</span> <span>다양한 와인을 저렴한 가격에 함께 즐겨보세요.</span></p> 
                                 <a class="more">자세히보기</a>
                             </div>                   
                         </div>
                         <div class="option pairing">
                             <div class="img"></div>
                             <div class="txt">
-                                <div class="title">Pairing</div>
-                                <p><span>요리의 맛을 더욱 풍부하게 만들어 줄 와인 페어링.</span> <span>당신만을 위한 요리에 걸맞는 와인으로 환상의 마리아쥬를 경험하세요.</span></p> 
+                                <div class="title"><em>Sommelier</em> <em>Pairing Service</em></div>
+                                <p><span>요리의 맛을 더욱 풍부하게 만들어 줄 </span> <span>와인 페어링. 소믈리에가 직접 서비스하는 </span> <span>와인을 만나보세요.</span></p> 
                                 <a class="more">자세히보기</a>
                             </div>   
                         </div>
                         <div class="option list">
                             <div class="img"></div>
                             <div class="txt">
-                                <div class="title">List</div>
-                                <p><span>그로토는 세계 각지의 다양한 와인을 보유합니다.</span> <span>폭 넓은 와인리스트를 통해 취향에 꼭 맞는 와인을 선택하세요.</span></p> 
-                                <a class="more">자세히보기</a>
+                                <div class="title">Wine List</div>
+                                <p><span>그로토는 세계 각지의 다양한 와인을 보유합니다.</span> <span>폭 넓은 와인리스트를 통해 취향에 꼭 맞는 와인을 선택하세요. (상담시 요청주세요)</span></p> 
                             </div>   
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
             <div class="deco process">
                 <h2 class="title">(03)<span class="garamond">DECO</span></h2>
                 <div class="contents">
                     <div class="intro">
                         <div class="garamond web">For your precious time.</div>
-                        <p class="">소중한 시간을 근사하게 장식하세요.<br>
-당신만을 위한 특별한 커트러리부터 플라워 센터피스까지-<br>
-감각적인 테이블 스타일링을 통해 더욱 낭만적이고 우아한 식탁을 제안합니다.</p>   
+                        <p class="">소중한 시간을 근사하게 장식하세요.<br>당신만을 위한 특별한 커트러리부터 플라워 센터피스까지-<br>감각적인 테이블 스타일링을 통해 더욱 낭만적이고 우아한 식탁을 제안합니다.</p>   
                     </div>
                     <div class="option basic">
                         <div class="img"></div>
@@ -295,46 +306,19 @@
                     </div> 
                 </div>
             </div>
-            <div class="reservation process">
-                <h2 class="title">(04)<span class="garamond">RESERVATION</span></h2>
+            <div class="reservation process noToggle">
+                <h2 class="title web" onclick="fnShowPop2('popup_reserv')">(04)<span class="garamond">RESERVATION</span></h2>
+                <h2 class="title mobile">(04)<span class="garamond">RESERVATION</span></h2>
                 <div class="contents">
-                   <div class="step-wrap">
-                        <div class="step">
-                            <div class="number">1</div>
-                            <div class="title">예약 설문지 작성</div>
-                            <p>‘지금 예약하기’ 버튼을 눌러 설문지를 작성해주세요. 내용을 상세히 작성해주시면 1:1 상담 시 더욱 도움이 됩니다.</p>
-                        </div>
-                        <div class="step">
-                            <div class="number">2</div>
-                            <div class="title">추가 확인사항 요청</div>
-                            <p>카카오톡 플러스 친구를 통해 1:1 컨설팅 진행 일정 및 더 원활한 서비스 제공을 위한 확인 사항을 요청드립니다.</p>
-                        </div>
-                        <div class="step">
-                            <div class="number">3</div>
-                            <div class="title">1:1 유선 상담</div>
-                            <p>작성해주신 내용을 바탕으로 맞춤 상담 서비스가 진행됩니다. 그로토는 섬세한 컨설팅으로 고객님의 더욱 완벽한 시간을 계획합니다.</p>
-                        </div>
-                        <div class="step">
-                            <div class="number">4</div>
-                            <div class="title">최종 예약내역 확인</div>
-                            <p>1:1 맞춤 상담 내용을 정리하여 최종 예약내역을 보내드립니다. 예약금 및 환불절차까지 확인하실 수 있습니다.</p>
-                        </div>
-                        <div class="step">
-                            <div class="number">5</div>
-                            <div class="title">예약 확정</div>
-                            <p>최종예약내역 확인, 예약금 10% 결제가 완료되면 그로토 서비스 예약이 확정됩니다.</p>
-                        </div>
-                    </div>
-                    <div class="reserv-button fix"><a href="">지금 예약하기</a></div>
-                    <div class="reserv-button mobile"><a href="">지금 예약하기</a></div>
-                </div>
-                
+                    <p><span>그로토는 1:1 프라이빗 컨설팅을 통해 더 세심한 서비스를 제공합니다.</span> <span>당신의 취향과 목적에 초점을 두어 더욱 만족스러운 시간이 될 수 있도록 고민합니다.</span></p><p><span>카카오톡 또는 ARS 상담을 통해 편리한 예약을 도와드립니다.</span> <span>지금 바로 아래의 버튼을 눌러 서비스를 경험하세요.</span></p>
+                    <div class="reserv-button fix"><a href="javascript:void(0);" onclick="fnShowPop2('popup_reserv')">예약/견적상담 받기</a></div>
+                    <div class="reserv-button mobile"><a href="javascript:void(0);" onclick="fnShowPop2('popup_reserv')">예약/견적상담 받기</a></div>
+                </div>               
             </div>
         </div>
         </div>
     </main>
-   
-   
+    
     <footer id="footer" class="clearfix cont">
         <!--<div class="go-to-top">TOP<div class="img"></div></div>-->
         <div class="contact">
@@ -352,7 +336,106 @@
         <div class="copy">© 2020 Grotto. All rights reserved.</div>     
     </footer>
     <!-- //footer -->  
-        
     
+    <!-- 와인 팝업 -->
+    <div id="popup_wine1" class="popup_wine" data-num="1">
+        <button type="button" class="close" onclick="fnHidePop2('popup_wine1')"></button>
+        <div class="popup_content_wrap">
+            <div class="popup_content">
+                <div class="top">
+                    <div class="txt"></div>
+                    <div class="img-wrap">
+                        <div class="img"></div>
+                    </div>
+                </div>
+                <div class="list_warp">
+                    <div class="list">
+                        <div class="title">Package A</div>
+                        <div class="package_list">
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                            <p>Cloudy Bay Sauvignon Blanc<span>클라우디베이 소비뇽 블랑</span></p>
+                            <p>Domaine Chavy-Chouet Bourgogne Blanc<span>도멘 샤비슈오 부르고뉴 블랑</span></p>
+                            <p>Edizione Rosso<span>에디찌오네 로쏘</span></p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="title">Package B</div>
+                            <div class="package_list">
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                            <p>Reserve Brut Premier Cru<span>도비 리저브 브뤼 프리미에 크뤼</span></p>
+                            <p>Chablis Premier Cru 'Vaucopins'<span>샤블리 프리미에 크뤼 </span></p>
+                            <p>Koyberpunk White Wine<span>코이버펑크 화이트와인</span></p>
+                            <p>Mercurey 1er Cru Clos Marcilly Monopole, Rouge<span>메르퀴리 프리미에 크뤼 피노누아</span></p>
+                            <p>Edizione Rosso<span>에디찌오네 로쏘</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div id="popup_wine2" class="popup_wine" data-num="2">
+        <button type="button" class="close" onclick="fnHidePop2('popup_wine2')"></button>
+        <div class="popup_content_wrap">
+            <div class="popup_content">
+                <div class="top">
+                    <div class="txt"></div>
+                    <div class="img-wrap">
+                        <div class="img"></div>
+                    </div>
+                </div>
+                <div class="list_warp">
+                    <div class="list">
+                        <div class="title">Package A</div>
+                        <div class="package_list">
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                            <p>Domperignon Brut<span>돔페리뇽</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- //와인 팝업 -->
+    
+    <!-- 예약 팝업 -->
+    <div id="popup_reserv">
+        <div class="popup_wrap">
+            <div class="popup_content">
+                <p class="web"></p>
+                <p class="mobile">어떤 방법이 더 편하세요?</p>
+                <div class="btn-area">
+                    <a class="tel" href="tel:1588-8922">1588-8922</a>
+                    <a href="http://pf.kakao.com/_xcxbiFK/chat" target="_blank" class="kakao"><span>카카오톡</span></a>
+                </div>
+            </div>
+            <button type="button" class="close2" onclick="fnHidePop2('popup_reserv')">닫기</button> 
+        </div>
+    </div>
+    <!-- //예약 팝업 -->
+    
+    <script>
+        /*예약 팝업*/
+        var posY;
+        function fnShowPop2(sGetName){
+            $("#"+ sGetName).addClass("on");
+
+            //스크롤막기
+            posY = $(window).scrollTop();
+            $('html, body').addClass('not_scroll');
+            $(".cont").css("top",-posY);
+        }
+
+        function fnHidePop2(sGetName){
+            $("#"+ sGetName).removeClass("on");
+            
+            $('html, body').removeClass('not_scroll');
+            posY = $(window).scrollTop(posY); //원래 스크롤 위치로 반환
+            // 팝업 닫기 푸터 위치 이동 오류 해결
+            $('#footer').css('top', '0');
+        } 
+    </script>    
+   
 </body>
 </html>

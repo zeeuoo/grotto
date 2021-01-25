@@ -12,6 +12,9 @@
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+     
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
       
        
     <!-- HTLM5shiv ie6~8 -->
@@ -87,8 +90,10 @@
     </footer>
     <!-- //footer -->
     
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script type="text/javascript" src="js/faq.js"></script>
+    <script>
+    if($(window).width() < 991) { 
+        $('#footer .contact a.kakao span').html('카카오톡 <em><a href="http://pf.kakao.com/_xcxbiFK/chat">@그로토</a></em> 채널 추가하고 자세한 상담 받아보세요.');
+    }
+    </script>
 </body>
 </html>
