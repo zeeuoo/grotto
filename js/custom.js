@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-//sgv color
+/*sgv color*/
 $(".st0").css("fill", "#fff");
 
+/*tooltip*/
+$('.tooltip').delay(4000).fadeOut(); 
 
 /*main slide*/
 var swiper = new Swiper('.visual', {
@@ -10,7 +12,7 @@ var swiper = new Swiper('.visual', {
     loop: true,
     effect: 'fade',
     autoplay: {
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
     }, 
 });
@@ -63,11 +65,6 @@ for(i=0; i<2; i++){
        $("#popup_wine"+j+" .txt").html(defultContTxt);
        }
 }
-
-/*wine list popup*/
-    $(".option.list").on("click", function(){
-    alert ("상담시 와인리스트를 요청해주세요!");
-});
 
 
 /*web reservation popup html*/
@@ -123,11 +120,59 @@ if($(window).width() <991) {
     }); 
 }   
 
+/*footer load*/
+$('#footer').load('footer.html');
 
-/*footer mobile*/
-if($(window).width() < 991) { 
-    $('#footer .contact a.kakao span').html('카카오톡 <em><a href="http://pf.kakao.com/_xcxbiFK/chat">@그로토</a></em> 채널 추가하고 자세한 상담 받아보세요.');
-}
 
+/*cusor*/
+    
+//defalt
+$(window).mousemove(function(e){
+    gsap.to(".cursor", {duration: 0.4, left: e.pageX -40, top: e.pageY -40});            
+});
+    
+    
+//link hover
+$(".reserv, .scroll").hover(function(){
+        $(".cursor").addClass('link');    
+    }, function(){
+        $(".cursor").removeClass('link');
+});   
+    
+//text
+$("h1, .slogan, .story, .faq, .instagram, .tel, h2.title, #popupWrap, #popup_wine1, #popup_wine2, .kakao, #popup_reserv, #footer").hover(function(){
+        $(".cursor").addClass('text');    
+    }, function(){
+        $(".cursor").removeClass('text');
+});  
+    
+    
+//drag
+$(".swiper1").hover(function(){
+        $(".cursor").addClass('drag');    
+        $(".cursorDrag").addClass('on');    
+    }, function(){
+        $(".cursor").removeClass('drag');
+        $(".cursorDrag").removeClass('on');
+});  
+
+$(".swiper1 button").hover(function(){
+        $(".cursor").addClass('text');    
+        $(".cursor").removeClass('drag');
+        $(".cursorDrag").removeClass('on');
+    }, function(){
+        $(".cursor").removeClass('text');
+        $(".cursor").addClass('drag');
+        $(".cursorDrag").addClass('on');
+}); 
+
+//click
+$(".wine .contents .option.promotion").hover(function(){
+        $(".cursor").addClass('click');    
+        $(".cursorClick").addClass('on');    
+    }, function(){
+        $(".cursor").removeClass('click');
+        $(".cursorClick").removeClass('on');
+});          
     
 })

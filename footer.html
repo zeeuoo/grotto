@@ -1,0 +1,30 @@
+
+<div class="info">
+    <p>
+        더맛치<em>대표: 홍성철</em>사업자등록번호: 871-85-01524<br>
+        서울특별시 강남구 테헤란로53길 22, 지하1층(역삼동)
+    </p>
+</div>
+<div class="customer_center">
+    <p class="haveQ mobile">문의사항이 있으신가요?</p>
+    <p> 
+        <a href="tel:02-554-8324" class="tel"><span>02-554-8324</span></a>
+        <a href="http://pf.kakao.com/_wxdWNK/chat" target="_blank" class="kakao mobile"><span>Kakaotalk</span></a>
+        <em>(상담가능시간: 평일 10:00-19:00)</em>
+    </p>   
+    <div class="link">
+        <a href="faq.html" class="faq"><span>FAQ</span></a>
+        <a href="https://www.instagram.com/match.kr" target="_blank" class="instagram"><span>Instagram</span></a>
+    </div> 
+</div>
+<div class="copy">© 2020 Match. All rights reserved.</div>     
+
+
+<script>
+/*footer mobile*/
+if($(window).width() < 991) { 
+    $('#footer .info').insertAfter('#footer .customer_center');
+    $('#footer .link').insertBefore('#footer .copy');
+    $('#footer .customer_center a.kakao span').html('카카오톡 <em><a href="http://pf.kakao.com/_wxdWNK/chat">@맛치</a></em> 채널 추가하고 자세한 상담 받아보세요.');
+}
+</script>

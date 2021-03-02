@@ -3,14 +3,23 @@
 /*공용*/
 .garamond {font-family: 'EB Garamond', serif;}
 a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; left: 0; bottom: -5px;}
-.close {width: 40px; height: 40px; position: absolute; top: 3vw; right: 3vw; cursor: pointer; z-index: 1;}
+.close {width: 40px; height: 40px; position: absolute; top: 3vw; right: 3vw; z-index: 1;}
 .close:before {content: ''; display: block; border: solid #fff; border-width: 0 2px 0 0; position: absolute; top: 0; left: 0; height: 20px; margin-left: 2em; transform: rotate(45deg);}
 .close:after {content: ''; display: block; border: solid #fff; border-width: 0 2px 0 0; position: absolute; top: 0; left: 0; height: 20px; margin-left: 2em; transform: rotate(-45deg);}
 .not_scroll {position: fixed; overflow: hidden; width: 100%; height: 100%;}
 .not_scroll .cont {position: relative; top: 0;}
 ::selection {background: #4e0d22; color: #fff;}
-.cursor {position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff3399; z-index: 1000; user-select: none; pointer-events: none; transition: all .2s; mix-blend-mode: color;}
 #popupWrap .modal-wrapper, #popup_reserv, .popup_wine {position: fixed; top: 0; left: 0; transition: all 0.5s ease-in-out; z-index: 999; background-color: rgba(0,0,0,0.8); width: 100%; height: 100vh;}
+
+/*커서*/
+.cursor {position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #4e0d22; z-index: 1000; user-select: none; pointer-events: none; z-index: 1000;  transition: transform 0.3s;}
+.cursor.link {mix-blend-mode: difference; transform: scale(2);}
+.cursor.text {mix-blend-mode: difference;}
+.cursor.drag, .cursor.click {transform: scale(1.5);}
+.cursor.text .cursorDrag.on {display: none;} /*chef swiper button 오류*/
+.cursorDrag, .cursorClick {display: none; color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10px;}
+.cursorDrag.on, .cursorClick.on {display: block;}
+
 
 
 /*swiper*/
@@ -20,12 +29,12 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 /*header*/
 .header-wrap {position: relative;}
 .header-wrap .gnb {position: absolute; width: 100%; top: 3vw;}
-.header-wrap .gnb h1 {background:url(../img/logo.svg) no-repeat center; width: 145px; height: 28px; position: absolute; left: 50%; transform: translateX(-50%);}
+.header-wrap .gnb h1 {background:url(../img/match_logo.svg) no-repeat center; width: 145px; height: 28px; position: absolute; left: 50%; transform: translateX(-50%);}
 .header-wrap .gnb .faq {position: absolute; left: 3vw;}
 .header-wrap .gnb .faq a {color: #fff;}
 .header-wrap .gnb .faq a:hover span:after {background: #fff;}
-.header-wrap .reserv {mix-blend-mode: difference; position: fixed; top: 3vw; right: 3vw; z-index: 2;}
-.header-wrap .reserv svg {width: 90px; height: 90px; animation: rotateImg 10s linear infinite; transform-origin: 50% 50%; cursor: pointer}
+.header-wrap .reserv {mix-blend-mode: difference; position: fixed; top: 3vw; right: 3vw; z-index: 2; cursor: pointer;}
+.header-wrap .reserv svg {width: 90px; height: 90px; animation: rotateImg 10s linear infinite; transform-origin: 50% 50%;}
 
 /*visual slider*/
 .visual {height: 100vh; z-index: -1;}
@@ -41,7 +50,7 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 .content .scroll {background: url(../img/scroll.svg) no-repeat center; position: absolute; bottom: 3vw; left: 50%; transform: translateX(-50%); width: 150px; height: 150px;}
 
 /*main*/
-#main {background: #fff;}
+#main, #footer {background: #fff;}
 
 /*content 전체 넓이*/
 .cont-wrap, #faq {width: 1350px; margin: 0 auto; padding: 0 15px;}
@@ -73,11 +82,13 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 .about .chef .chef-warp .chef-list:nth-child(2) .img, #popup_2 .img {background: url(../img/pgr.jpg) no-repeat top; background-size: cover;}
 .about .chef .chef-warp .chef-list:nth-child(3) .img, #popup_3 .img {background: url(../img/kip.jpg) no-repeat top; background-size: cover;}
 .about .chef .chef-warp .chef-list:nth-child(4) .img, #popup_4 .img {background: url(../img/lsj.jpg) no-repeat top; background-size: cover;}
-.about .chef .chef-warp .chef-list:nth-child(5) .img, #popup_5 .img {background: url(../img/ssm.jpg) no-repeat top; background-size: cover;}
+.about .chef .chef-warp .chef-list:nth-child(5) .img, #popup_5 .img {background: url(../img/angus.jpg) no-repeat top; background-size: cover;}
+.about .chef .chef-warp .chef-list:nth-child(6) .img, #popup_6 .img {background: url(../img/ssm.jpg) no-repeat top; background-size: cover;}
+.about .chef .chef-warp .chef-list:nth-child(7) .img, #popup_7 .img {background: url(../img/esg.jpg) no-repeat top; background-size: cover;}
 .about .chef .chef-warp .chef-list .name {font-weight: 600; letter-spacing: -0.04em; font-size: 18px; margin: 20px 0 5px;}
 .about .chef .chef-warp .chef-list .name span {color: #999999; font-weight: 400; letter-spacing: 0;}
 .about .chef .chef-warp .chef-list .kind {margin-bottom: 30px;}
-.about .chef .chef-warp .chef-list > button {color: #999999; letter-spacing: -0.04em; cursor: pointer; font-size: 13px;}
+.about .chef .chef-warp .chef-list > button {color: #999999; letter-spacing: -0.04em; font-size: 13px;}
 .about .chef .chef-warp .chef-list > button span:after {content: ''; display: block; width: 100%; height: 1px; background: #999; }
 
 /*chef popup*/
@@ -99,8 +110,8 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 .modal_container .m_content .m_inner .profile .kind {color: #999999;}
 .modal_container .m_content .m_inner .profile .list {margin-top: 30px; line-height: 2;}
 .modal_container .m_content .m_inner .profile .list dl {display: flex;}
-.modal_container .m_content .m_inner .profile .list dt {font-weight: 700; width: 5vw;}
-.modal_container .m_content .m_inner .profile .list dd {margin-left: 10px; letter-spacing: -0.04em;}
+.modal_container .m_content .m_inner .profile .list dt {font-weight: 700; width: 20%;}
+.modal_container .m_content .m_inner .profile .list dd {margin-left: 0px; letter-spacing: -0.04em; width: 80%;}
 
 /*process 전체*/
 .process-wrap .process h2 {font-size: 18px; cursor: pointer;}
@@ -123,6 +134,7 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 
 
 /*wine*/
+.wine .contents .wine-wrap .option.promotion {cursor: pointer;}
 .wine .contents .wine-wrap .option .title {font-size: 18px; font-weight: 600; margin: 15px 0;}
 .wine .contents .wine-wrap .promotion .img, #popup_wine1 .popup_content_wrap .popup_content .img  {background: url(../img/domperignon.svg) no-repeat center; width: 165px; height: 165px; margin: 0 auto;}
 .wine .contents .wine-wrap .pairing .img, #popup_wine2 .popup_content_wrap .popup_content .img  {background: url(../img/sommelier.svg) no-repeat center; width: 165px; height: 165px; margin: 0 auto;}
@@ -154,12 +166,12 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 .deco .contents .option .txt .title {font-size: 18px; font-weight: 600; margin-bottom: 15px;}
 .deco .contents .option .txt p {color: #666666; line-height: 2;}
 .deco .contents .option .txt p.info {color: #1f1f1f; margin-bottom: 10px; line-height: inherit;}
-.deco .contents .option.basic .txt, .deco .contents .option.custom .txt {width: 40%; display: flex; align-items: center; margin-left: 5%;}
-.deco .contents .option.premium {flex-direction: row-reverse;}
-.deco .contents .option.premium .txt {width: 30%; display: flex; align-items: center; margin-right: 5%;}
-.deco .contents .option.basic .img {width: 55%; height: 480px; background: url(../img/decoBasic.jpg) no-repeat center; background-size: cover;}
-.deco .contents .option.premium .img {width: 65%; height: 605px; background: url(../img/decoPremium.jpg) no-repeat center; background-size: cover;}
-.deco .contents .option.custom .img {width: 55%; height: 480px; background: url(../img/decoCustom.jpg) no-repeat center; background-size: cover;}
+.deco .contents .option.flower .txt, .deco .contents .option.baby .txt {width: 40%; display: flex; align-items: center; margin-left: 5%;}
+.deco .contents .option.plate {flex-direction: row-reverse;}
+.deco .contents .option.plate .txt {width: 30%; display: flex; align-items: center; margin-right: 5%;}
+.deco .contents .option.flower .img {width: 55%; height: 480px; background: url(../img/decoFlower.jpg) no-repeat center; background-size: cover;}
+.deco .contents .option.plate .img {width: 65%; height: 605px; background: url(../img/decoPlate.jpg) no-repeat center; background-size: cover;}
+.deco .contents .option.baby .img {width: 55%; height: 480px; background: url(../img/decoBaby.jpg) no-repeat center; background-size: cover;}
 
 
 /*reservation*/
@@ -177,19 +189,22 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
 
 /*footer*/
 #footer {position: relative; padding: 150px 3vw 5vh; display: flex; align-items: flex-end;}
-#footer .contact {flex: 1;}
-#footer .contact p {margin-bottom: 2px;}
-#footer .contact a {font-weight: 700; margin-right: 15px;}
-#footer .link {order: 3; flex: 1; text-align: right;}
-#footer .link a {display: inline-block; margin-left: 15px;}
-#footer .copy {flex: 1; text-align: center;}
+#footer > div {flex: 1;}
+#footer .info em {margin: 0 15px;}
+#footer .customer_center {order: 3; flex: 1; text-align: right;}
+#footer .customer_center a {display: block;}
+#footer .customer_center a.tel span {font-weight: 700; font-size: 22px;}
+#footer .customer_center .link a {display: inline-block; margin-left: 15px;}
+#footer .copy {text-align: center;}
 
 /*FAQ*/
 #faq-wrap {background: #1f1f1f; color: #fff;}
+#faq-wrap #footer {background: #1f1f1f;}
 #faq-wrap #footer .contact a, #faq-wrap #footer .contact p.haveQ, #faq-wrap #footer .link a {color: #fff;}
 #faq {margin-top: 80px;}
 #faq h3 {font-size: 40px; line-height: 1; text-align: center; color: #fff;}
 #faq .faq-wrap {display: flex; padding: 80px 80px 0;}
+#faq .faq-wrap > div {flex: 1;}
 #faq .faq-wrap .faq-right {margin-left: 80px;}
 #faq .faq {width: 80%; margin-bottom: 40px; letter-spacing: -0.03em; line-height: 1.8;}
 #faq .faq .q {font-size: 18px; margin-bottom: 10px;}
@@ -201,15 +216,17 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .mobile {display: none !important;}
     
     .visual .visual1 {background: url(../img/web01.png) no-repeat center; background-size: cover;}
-    .visual .visual2 {background: url(../img/web02.png) no-repeat center; background-size: cover;}
-    .visual .visual3 {background: url(../img/web03.png) no-repeat center; background-size: cover;}
+    .visual .visual2 {background: url(../img/web03.jpg) no-repeat center; background-size: cover;}
+    .visual .visual3 {background: url(../img/w.jpg) no-repeat center; background-size: cover;}
+    
+    .content .slogan p, .about .story p, .deco .contents .intro p {font-size: calc(14px + 0.1vw)}
     
     .about .story span {display: block;} 
     .about .story h3 {font-size: calc(40px + 0.5vw);}
-    .about .story p, .deco .contents .intro p {font-size: calc(14px + 0.1vw)}
     .about .chef .chef-warp .chef-list > button:hover {color: #4e0d22; font-weight: 700;}
     .about .chef .chef-warp .chef-list > button:hover span:after {background: #4e0d22;}
     .about .chef .modal_container .m_content {display: flex;}
+    .modal_container .m_content .m_inner .profile .list dt {width: 60px;}
     
     .process-wrap .process h2 {font-size: calc(18px + 0.5vw)}
     .process-wrap .process h2 span {font-size: calc(46px + 2vw)}
@@ -218,12 +235,12 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .menu .contents .menu-wrap .tabcontent .option {margin-bottom: 20px;}
     
     .wine .contents .wine-wrap {display: flex;}
-    .wine .contents .wine-wrap .option {width: 33.333%; text-align: center; position: relative; padding: 3vw; cursor: pointer;}
+    .wine .contents .wine-wrap .option {width: 50%; text-align: center; position: relative; padding: 3vw;}
     .wine .contents .wine-wrap .option:hover {box-shadow: 0 0 15px 5px rgba(0,0,0,0.1);}
     .wine .contents .wine-wrap .option p {color: #666666;}
     .wine .contents .wine-wrap .option p span {display: block;}
     .wine .contents .wine-wrap .option .txt a.more {display: none;}
-    .popup_content_wrap {width: 40%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px;}
+    .popup_content_wrap {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 20px;}
     .popup_content_wrap .popup_content {padding: 40px;}
     .popup_content_wrap .popup_content .top {margin-bottom: 40px;}
     .popup_content_wrap .popup_content .top .img {position: absolute; top: 20px; right: 0;}
@@ -241,6 +258,8 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     
     #footer .contact a:hover span:after, #footer .link a:hover span:after {background: #1f1f1f;}
     #faq-wrap #footer a:hover span:after {background: #fff;}
+    #faq-wrap #footer .link .faq {display: none;}
+    #faq-wrap #footer .link a.instagram {margin-left: 0;}
     
 }
 @media screen and (max-width: 1350px) { 
@@ -261,9 +280,9 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .header-wrap .reserv {display: none;}
     
     .visual {height: 70vh;}
-    .visual .visual1 {background: url(../img/mobile01.png) no-repeat center; background-size: cover;}
-    .visual .visual2 {background: url(../img/mobile02.png) no-repeat center; background-size: cover;}
-    .visual .visual3 {background: url(../img/mobile03.png) no-repeat center; background-size: cover;}  
+    .visual .visual1 {background: url(../img/m1.jpg) no-repeat center; background-size: cover;}
+    .visual .visual2 {background: url(../img/m2.jpg) no-repeat center; background-size: cover;}
+    .visual .visual3 {background: url(../img/m5.jpg) no-repeat center; background-size: cover;}   
     
     .content .scroll {width: 100px; height: 100px; right: 3vw; bottom: 3vw; transform: inherit; left: inherit;}
     
@@ -281,7 +300,6 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .modal_container {width: 100%; background: #fff; height: 100%; overflow: hidden; overflow-y: scroll;}
     .modal_container .m_content .img {width: 100%; height: 50vh;}
     .modal_container .m_content .m_inner {width: 100%;}
-    .modal_container .m_content .m_inner .profile .list dt {width: 18vw;}
     .modal_container .m_content .m_inner .btn-area {position: relative; height: 60px;}
     .modal_container .m_content .m_inner .btn-area .close {top: 6vw;}
     .modal_container .m_content .m_inner .btn {left: 3vw; top: 3vw;}
@@ -292,9 +310,9 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     
     .menu .contents .menu-wrap {display: block;}
     .menu .contents .menu-wrap .tabs {display: flex; justify-content: center; background: #f5f5f5; position: relative; border-radius: 50px;}
-    .menu .contents .menu-wrap .tabs button {color: #666666; border-radius: 50px; width: 33.333%; height: 42px; z-index: 1; transition-duration:0.4s;}
+    .menu .contents .menu-wrap .tabs button {color: #666666; border-radius: 50px; width: 50%; height: 42px; z-index: 1; transition-duration:0.4s;}
     .menu .contents .menu-wrap .tabs button.active {color: #fff;}
-    .menu .contents .menu-wrap .tabs .selector {width: 33.333%; height: 42px; position: absolute; background: #4e0d22; top: 0; left: 0; border-radius: 50px; transition-duration:0.4s; transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);}
+    .menu .contents .menu-wrap .tabs .selector {width: 50%; height: 42px; position: absolute; background: #4e0d22; top: 0; left: 0; border-radius: 50px; transition-duration:0.4s; transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);}
     .menu .contents .menu-wrap .tabcontent .option {width: inherit; padding: 5vw;}
     /* .menu .contents .menu-wrap .tabcontent .option:first-child {margin-bottom: 20px;} */
     .menu .contents .menu-wrap .tabcontent .option:hover {box-shadow: none;}
@@ -325,8 +343,8 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .deco .contents .option {display: block; width: inherit; margin-bottom: 40px;}
     .deco .contents .option .txt p {line-height: inherit;}
     .deco .contents .option .txt .title {margin-bottom: 5px; margin-top: 15px;}
-    .deco .contents .option.basic .img, .deco .contents .option.premium .img, .deco .contents .option.custom .img {width: 100%; height: 0; padding-bottom: 70%;}
-    .deco .contents .option.basic .txt, .deco .contents .option.premium .txt, .deco .contents .option.custom .txt {width: 100%; margin-left: 0;}
+    .deco .contents .option.flower .img, .deco .contents .option.plate .img, .deco .contents .option.baby .img {width: 100%; height: 0; padding-bottom: 70%;}
+    .deco .contents .option.flower .txt, .deco .contents .option.plate .txt, .deco .contents .option.baby .txt {width: 100%; margin-left: 0;}
     
     .reserv-button {margin: 0 auto; width: calc(100% - 10vw); position: fixed; bottom: 5vw; left: 5vw; z-index: 5;}
     .reserv-button.mobile {position: inherit; margin-top: 20px;}
@@ -339,20 +357,16 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     #popup_reserv .popup_wrap button.close2 {padding: 15px;}
     
     #footer {padding-top: 30px; display: inherit; border-top: 1px solid #666666;}
-    #footer .link, #footer .copy {text-align: left;}
-    #footer .link a {margin-left: 0; margin-right: 10px; margin-bottom: 20px;}
-    #footer .contact {margin-bottom: 20px;}
-    #footer .contact p {margin-bottom: 0; color: #666666;}
-    #footer .contact p.haveQ {color: #1f1f1f; line-height: 1;}
-    #footer .contact a {display: block; margin-right: 0;}
-    #footer .contact a.tel {font-size: 7vw; color: #1f1f1f;}
-    #footer .contact a.kakao {font-weight: normal; color: #999999;}
-    #footer .contact a.kakao em a {display: inline; color: #4e0d22; font-weight: normal;}
+    #footer .customer_center, #footer .copy {text-align: left;}
+    #footer .customer_center a.kakao span em a {color: #4e0d22; display: inline;}
+    #footer .info {margin: 20px 0 10px; color: #666666;}
+    #footer .link {margin-bottom: 10px;}
+    #footer .link a.instagram {margin-left: 15px;}
     #footer .copy {color: #999999;}
     
-    #faq-wrap #footer .contact p em {color: #999999;}
-    #faq-wrap #footer .contact a.kakao em a {color: #fff;}
-    #faq-wrap #footer .contact a.kakao em a:hover
+    #faq-wrap #footer .customer_center a.tel span, #faq-wrap #footer .customer_center a.kakao, #faq-wrap #footer .customer_center a.kakao span em a {color: #fff;}
+    #faq-wrap #footer .info {color: #999999;}
+    
 }
 
 @media screen and (max-width: 480px) {
@@ -376,6 +390,7 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     .about .chef .chef-warp .chef-list.swiper-slide:first-child {margin-left: 5vw; }
     .about .chef .chef-warp .chef-list.swiper-slide:last-child {margin-right: 5vw; }
     #popupWrap .modal-wrapper .btn .prev, #popupWrap .modal-wrapper .btn .next {width: 45px; height: 45px;}
+    .modal_container .m_content .m_inner {padding-bottom: 10vh;}
     .modal_container .m_content .m_inner .btn {left: 5vw;}
     .modal_container .m_content .m_inner .profile {padding: 5vw;}
     .process-wrap .process h2 span {margin-left: 5px; font-size: 11.5vw;}
@@ -411,4 +426,7 @@ a:hover span:after {content: ''; width: 100%; height: 1px; position: absolute; l
     
     /*chef swiper*/
     .about .chef .swiper-container {overflow: visible;}
+    
+    /*cursor*/
+    .cursor {display: none;}
 }
